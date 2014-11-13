@@ -11,9 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113034726) do
+ActiveRecord::Schema.define(version: 20141113053242) do
 
-  create_table "lists", force: true do |t|
+  create_table "lesson_exercise", force: true do |t|
+    t.integer  "lesson_unit"
+    t.string   "exercise_title"
+    t.string   "exercise_content"
+    t.integer  "exercise_answer"
+    t.integer  "exercise_tle"
+    t.integer  "exercise_mle"
+    t.integer  "exercise_fle"
+    t.integer  "exercise_judge_mode"
+    t.integer  "exercise_judge_added"
+    t.integer  "exercise_is_visible"
+    t.integer  "exercise_is_delete"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,7 +42,7 @@ ActiveRecord::Schema.define(version: 20141113034726) do
     t.datetime "updated_at"
   end
 
-  create_table "user_submissions", force: true do |t|
+  create_table "user_submission", force: true do |t|
     t.integer  "link_id"
     t.integer  "submit_type"
     t.integer  "submit_content"

@@ -15,9 +15,10 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'haml-rails'
 gem 'simple_form'
+gem 'kaminari'
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_20]
+  gem 'binding_of_caller'
   gem 'html2haml'
   gem 'rails_layout'
 end

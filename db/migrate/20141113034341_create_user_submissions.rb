@@ -1,6 +1,6 @@
 class CreateUserSubmissions < ActiveRecord::Migration
   def change
-    create_table :user_submissions do |t|
+    create_table :user_submission do |t|
       t.integer :link_id
       t.integer :submit_type
       t.integer :submit_content
