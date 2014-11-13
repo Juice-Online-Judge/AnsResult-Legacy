@@ -11,7 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112032711) do
+ActiveRecord::Schema.define(version: 20141113034726) do
+
+  create_table "lists", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_data", force: true do |t|
+    t.integer  "uid"
+    t.text     "email"
+    t.text     "nickname"
+    t.integer  "std_id"
+    t.integer  "group_id"
+    t.integer  "admin_group"
+    t.integer  "last_update_time"
+    t.integer  "last_update_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_submissions", force: true do |t|
+    t.integer  "link_id"
+    t.integer  "submit_type"
+    t.integer  "submit_content"
+    t.integer  "judge_result"
+    t.integer  "usage_time"
+    t.integer  "usage_mem"
+    t.integer  "usage_file"
+    t.integer  "submit_user"
+    t.integer  "submit_time"
+    t.text     "submit_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

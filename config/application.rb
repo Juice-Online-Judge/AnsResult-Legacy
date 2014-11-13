@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module AnsResult
   class Application < Rails::Application
+    config.sass.preferred_syntax = :sass
 
     config.generators do |g|
       g.test_framework :rspec,
@@ -30,6 +31,6 @@ module AnsResult
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :zh
+    config.i18n.default_locale = :en
   end
 end
