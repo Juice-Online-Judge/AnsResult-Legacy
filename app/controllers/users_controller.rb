@@ -6,15 +6,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def new
-    redirect_to :back, :alert => "Access denied." unless current_user.admin?
-    @user = User.new
-  end
-
-  def create
-    @user.save
-  end
-
   def show
     @user = User.find(params[:id])
     unless current_user.admin?
