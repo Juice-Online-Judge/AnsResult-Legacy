@@ -1,0 +1,15 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th Id
+      -@titles.each do |_, title|
+        %th= title
+  %tbody
+    -@lists.each do |id, res|
+      %tr
+        %td= id
+        -res.each do |k, x|
+          %td
+            %font{color:if x == "AC" then "green" else "red" end}
+              =x
+=paginate @lists
