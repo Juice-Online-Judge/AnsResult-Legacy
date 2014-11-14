@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  def show
+  def index
     @exercises = Hash.new {|h, k| h[k] = []}
     @exe2 = []
     LessonExercise.find_each { |exercise|
