@@ -23,3 +23,12 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+juicedb:
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  database:
+  username:
+  password:
+
