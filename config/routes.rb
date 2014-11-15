@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "devise/registrations" }
   resources :lists
   resources :users
-  mount Upmin::Engine => '/admin'
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Upmin::Engine => '/admin'
+  end
 end
