@@ -5,11 +5,11 @@ Rails.application.routes.draw do
     :sessions => "auth/sessions"
   }
   authenticate :user do
-    resources :lists
-    resources :errors
+    resources :lists, only: [:index]
+    resources :errors, only: [:index]
   end
-  resources :users
   authenticate :user, lambda { |u| u.admin? } do
+    resources :users, except: [:new, :create]
     mount Upmin::Engine => '/admin'
   end
 end
