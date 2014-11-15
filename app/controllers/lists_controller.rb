@@ -28,7 +28,12 @@ class ListsController < ApplicationController
       sid = UserData.find(submission.submit_user).std_id
       @lists[sid][@titles[submission.link_id]] = if submission.judge_result == 1 then "AC" else "WA" end
     }
-    @lists = @lists.to_a
-    @lists = Kaminari.paginate_array(@lists).page(params[:page]).per(20)
+    respond_to do |format|
+      format.json {render json: @lists}
+      format.html {
+        @lists = @lists.to_a
+        @lists = Kaminari.paginate_array(@lists).page(params[:page]).per(20)
+      }
+    end
   end
 end
