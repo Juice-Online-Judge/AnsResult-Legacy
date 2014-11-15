@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   def index
+    redirect_to errors_path, alert: "Please contact to admin for access permission" if current_user.role == "unauth"
     @exercises = Hash.new {|h, k| h[k] = []}
     @exe2 = []
     LessonExercise.find_each { |exercise|

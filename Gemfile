@@ -24,6 +24,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'html2haml'
   gem 'rails_layout'
+  gem "erb2haml"
 end
 group :development, :test do
   gem 'factory_girl_rails'
