@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 module AnsResult
   class Application < Rails::Application
     config.sass.preferred_syntax = :sass
+    config.assets.compile = true
+    config.assets.precompile =  ['*.js', '*.css', '*.css.erb']
 
     config.generators do |g|
       g.test_framework :rspec,
