@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'visitors#index'
-  devise_for :users, :controllers => { :registrations => "auth/registrations" }
+  devise_for :users, :controllers => {
+    :registrations => "auth/registrations",
+    :sessions => "auth/sessions"
+  }
   authenticate :user do
     resources :lists
     resources :errors
