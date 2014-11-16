@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     :sessions => "auth/sessions"
   }
   authenticate :user do
+    resources :display, only: [:index]
     resources :lists, only: [:index]
     resources :errors, only: [:index]
   end

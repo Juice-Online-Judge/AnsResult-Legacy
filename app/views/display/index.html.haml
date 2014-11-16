@@ -1,0 +1,12 @@
+%div{ 'ng-app' => 'main' }
+  .container{'ng-controller' => 'display'}
+    .row
+      %table{'ng-table' => "tableParams", 'show-filter' => 'true', class: 'table'}
+        %thead
+          %tr
+            %th{ 'ng-repeat' => 'column in $data.columns' } {{column}}
+        %tbody
+          %tr{'ng-repeat' => 'value in $data.values'}
+            %td{'ng-repeat' => 'column in $data.columns'}
+              {{value[column]}}
+
