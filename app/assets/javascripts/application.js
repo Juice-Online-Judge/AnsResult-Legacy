@@ -16,6 +16,5 @@
 //= require angular-resource/angular-resource
 //= require ng-table/ng-table
 //= require ng-table-export/ng-table-export
-//= require ng-resource/dist/ng-resource
 //= require bootstrap-sprockets
 //= require_tree .
