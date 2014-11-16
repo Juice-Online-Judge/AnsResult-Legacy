@@ -16,6 +16,7 @@ app = angular.module('main', ['ngTable', 'ngResource', 'angularSpinner']).contro
             console.log data
             usSpinnerService.stop \spinner-1
             params.total data.total
+            data.result.values = data.result.values.slice((params.page() - 1) * params.count(), params.page() * params.count())
             $defer.resolve data.result
 ]
 
