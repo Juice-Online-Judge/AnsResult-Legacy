@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use LiveScript in this file: http://gkz.github.com/LiveScript
 
-app = angular.module('main', ['ngTable', 'ngResource', 'angularSpinner']).controller 'display', ["$scope", "$filter", "$resource", "$http",
+app = angular.module('main', ['ngTable', 'ngTableExport', 'ngResource', 'angularSpinner']).controller 'display', ["$scope", "$filter", "$resource", "$http",
   "ngTableParams", "usSpinnerService", ($scope, $filter, $resource, $http, ngTableParams, usSpinnerService) !->
     Api = $resource \/lists.json
     $scope.tableParams = new ngTableParams do

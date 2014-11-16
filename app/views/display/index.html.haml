@@ -2,8 +2,9 @@
   .container{'ng-controller' => 'display'}
     .row
       %span{ 'us-spinner' => '{radius:30, width:8, length: 16}', 'spinner-key' => 'spinner-1', 'spinner-start-active' => true}
+      %a.btn.btn-primary{ 'ng-mousedown' => 'csv.generate()', 'ng-href' => '{{csv.link()}}', download: 'data.csv'} Export to CSV
       %button.btn.btn-default.pull-right{ 'ng-click' => 'tableParams.sorting({})' } Clear Sorting
-      %table{'ng-table' => "tableParams", 'show-filter' => 'true', class: 'table'}
+      %table{'ng-table' => "tableParams", 'show-filter' => 'true', 'export-csv' => 'csv', class: 'table'}
         %thead
           %tr
             %th.sortable.text-center{ 'ng-repeat' => 'column in $data.columns',
