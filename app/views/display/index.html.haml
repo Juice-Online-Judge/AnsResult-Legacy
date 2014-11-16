@@ -2,6 +2,7 @@
   .container{'ng-controller' => 'display'}
     .row
       %span{ 'us-spinner' => '{radius:30, width:8, length: 16}', 'spinner-key' => 'spinner-1', 'spinner-start-active' => true}
+      %button.btn.btn-default.pull-right{ 'ng-click' => 'tableParams.sorting({})' } Clear Sorting
       %table{'ng-table' => "tableParams", 'show-filter' => 'true', class: 'table'}
         %thead
           %tr
