@@ -8,5 +8,6 @@
         %tbody
           %tr{'ng-repeat' => 'value in $data.values'}
             %td{'ng-repeat' => 'column in $data.columns'}
-              {{value[column]}}
+              %font{'ng-attr-color' => %q({{column == 'Id' ? 'black' : (value[column] == 'AC' ? 'green' : 'red')}})}
+                {{value[column]}}
 
