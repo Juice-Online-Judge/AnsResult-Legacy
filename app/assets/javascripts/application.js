@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require spinner.js/spinner.js
 //= require angular/angular
 //= require angular-resource/angular-resource
+//= require angular-spinner/angular-spinner
 //= require ng-table/ng-table
 //= require ng-table-export/ng-table-export
 //= require bootstrap-sprockets

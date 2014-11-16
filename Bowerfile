@@ -1,5 +1,6 @@
 asset 'angular'
 asset 'angular-resource'
+asset 'angular-spinner'
 asset 'ng-table'
 asset 'ng-table-export'
 #vim ft=ruby
