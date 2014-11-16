@@ -29,7 +29,19 @@ class ListsController < ApplicationController
       @lists[sid][@titles[submission.link_id]] = if submission.judge_result == 1 then "AC" else "WA" end
     }
     respond_to do |format|
-      format.json {render json: @lists}
+      format.json {
+        title = @titles.to_a.map {|x| x.fetch(1)}
+        columns = ["Id"] + title
+        data = {result: {columns: columns}}
+        data[:result][:values] = @lists.map do |k, v|
+          {"Id" => k}.merge v.zip(title).inject(Hash.new) { |h, x|
+            h[x[1]] = if x[0][1] then x[0][1] else "" end
+            h
+          }
+        end
+        data[:total] = data[:result][:values].size
+        render json: JSON.pretty_generate(data)
+      }
       format.html {
         @lists = @lists.to_a
         @lists = Kaminari.paginate_array(@lists).page(params[:page]).per(20)
