@@ -7,16 +7,18 @@ app = angular.module('main', ['ngTable', 'ngResource', 'angularSpinner']).contro
     Api = $resource \/lists.json
     $scope.tableParams = new ngTableParams do
       * page: 1
-        count: 20
+        count: 10
         sorting:
-          id: 'asc'
+          Id: 'asc'
       * total: 0
         getData: ($defer, params) !->
           $http.get(\/lists.json).success (data) !->
-            console.log data
-            usSpinnerService.stop \spinner-1
             params.total data.total
+            data.result.values = if params.sorting!
+              then $filter('orderBy')(data.result.values, params.orderBy!)
+              else data.result.values
             data.result.values = data.result.values.slice((params.page() - 1) * params.count(), params.page() * params.count())
             $defer.resolve data.result
+            usSpinnerService.stop \spinner-1
 ]
 
