@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require spinner.js/spinner.js
+//= require spin.js/spin
 //= require angular/angular
 //= require angular-resource/angular-resource
 //= require angular-spinner/angular-spinner
