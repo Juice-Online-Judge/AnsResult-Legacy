@@ -1,4 +1,5 @@
 asset 'angular'
+asset 'angular-resource'
 asset 'ng-table'
 asset 'ng-table-export'
 #vim ft=ruby
