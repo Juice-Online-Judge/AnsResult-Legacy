@@ -10,11 +10,25 @@ This application requires:
 
 - Ruby 2.0.0
 - Rails 4.1.6
+- Nodejs
 
 Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
 
 Getting Started
 ---------------
+
+If you doesn't have bower
+```
+npm install bower -g
+```
+
+```
+bundle install
+rake db:migrate
+rake db:seed
+rake devise:install
+rake bower:install
+```
 
 Documentation and Support
 -------------------------
