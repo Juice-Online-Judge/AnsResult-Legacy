@@ -14,7 +14,7 @@ app = angular.module('main', ['ngTable', 'ngTableExport', 'ngResource', 'angular
       * total: 0
         getData: ($defer, params) !->
           setData = (data) !->
-            self.resData = data
+            self.resData = JSON.parse(JSON.stringify(data))
             params.total data.total
             data.result.values = if params.sorting!
               then $filter('orderBy')(data.result.values, params.orderBy!)
@@ -23,7 +23,7 @@ app = angular.module('main', ['ngTable', 'ngTableExport', 'ngResource', 'angular
             $defer.resolve data.result
             usSpinnerService.stop \spinner-1
           if self.resData.length != 0
-            data = self.resData
+            data = JSON.parse(JSON.stringify(self.resData))
             setData(data)
           else
             $http.get(\/lists.json).success(setData)
