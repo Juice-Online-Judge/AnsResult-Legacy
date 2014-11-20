@@ -26,7 +26,14 @@ class ListsController < ApplicationController
     }
     UserSubmission.find_each { |submission|
       sid = UserData.find(submission.submit_user).std_id
-      @lists[sid][@titles[submission.link_id]] = if submission.judge_result == 1 then "AC" else "WA" end
+      tmp = if submission.judge_result == 1 then "AC" else "WA" end
+      if @lists[sid].key? @titles[submission.link_id]
+        if @lists[sid][@titles[submission.link_id]] == "WA" and tmp == "AC"
+          @lists[sid][@titles[submission.link_id]] = tmp
+        end
+      else
+        @lists[sid][@titles[submission.link_id]] = tmp
+      end
     }
     respond_to do |format|
       format.json {
